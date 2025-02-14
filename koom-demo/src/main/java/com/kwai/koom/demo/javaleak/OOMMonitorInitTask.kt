@@ -30,7 +30,7 @@ object OOMMonitorInitTask : InitTask {
         override fun upload(file: File, type: OOMHprofUploader.HprofType) {
           val destFile = File(appFilesDir, file.name) // 复制到 app files 目录
           file.copyTo(destFile, overwrite = true)
-          MonitorLog.e("OOMMonitor", "HPROF 文件已保存: ${destFile.absolutePath}")
+          MonitorLog.i("OOMMonitor", "HPROF 文件已保存: ${destFile.absolutePath}")
         }
       })
 
