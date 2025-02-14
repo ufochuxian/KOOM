@@ -4,6 +4,7 @@ import android.content.Context
 import org.json.JSONObject
 import java.io.File
 import android.graphics.Color
+import android.util.Log
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.XAxis
@@ -97,12 +98,17 @@ class HprofChartsMaker {
         pieChart.invalidate()
     }
 
+
     fun setupGcGraph(graphView: GraphView, gcPaths: List<List<Pair<String, String>>>) {
         val series = LineGraphSeries<DataPoint>()
         var x = 0.0
 
+        // 遍历 GC 路径并打印信息
         for (path in gcPaths) {
+            Log.d("gcPath", "GC Path:")  // 打印 GC 路径的开始标记
             for ((declaredClass, reference) in path) {
+                // 打印每个泄漏对象的类和引用信息
+                Log.d("gcPath", "Class: $declaredClass, Reference: $reference")
                 series.appendData(DataPoint(x, x + 1), true, 100)
                 x += 1
             }
@@ -110,6 +116,7 @@ class HprofChartsMaker {
 
         graphView.addSeries(series)
     }
+
 
 
 }
