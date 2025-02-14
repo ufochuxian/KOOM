@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.koom.charts.LeakAnalysisActivity;
 import com.kwai.koom.base.Monitor_SoKt;
 import com.kwai.koom.demo.javaleak.JavaLeakTestActivity;
 import com.kwai.koom.demo.javaleak.test.LeakMaker;
@@ -49,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
     findViewById(R.id.btn_test_thread_leak).setOnClickListener(v -> {
       ThreadLeakTestActivity.Companion.start(MainActivity.this);
+    });
+
+
+    findViewById(R.id.hprof_charts).setOnClickListener(v -> {
+      LeakAnalysisActivity.Companion.start(MainActivity.this);
     });
   }
 }

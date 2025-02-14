@@ -38,4 +38,15 @@
     android:paddingLeft="60dp"
     android:paddingRight="60dp" />
 
+  <Button
+      android:id="@+id/hprof_charts"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="输出可视化内存分析"
+      android:layout_centerInParent="true"
+      android:textSize="18sp"
+      android:layout_below="@id/btn_test_thread_leak"
+      android:paddingLeft="60dp"
+      android:paddingRight="60dp" />
+
 </RelativeLayout>

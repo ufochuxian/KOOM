@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.koom.charts'
+
+    compileSdkVersion 30    // Android 7.0
+
+    defaultConfig {
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.constraintlayout
+    implementation deps.material
+    implementation deps.kotlin.stdlib
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' // MPAndroidChart 图表库
+    implementation 'com.jjoe64:graphview:4.2.2' // 最新版本
+}
